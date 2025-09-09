@@ -1,13 +1,32 @@
+const readline = require("readline")
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
 // This is our main function
 function fizzbuzz() {
-
     // Put your code here...
-    for (let i=1; i <= 255; i++) {
-        console.log(i, checkNumber(i))
-    }
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+    
+    console.log("Welcome to FizzBuzz!")
+    rl.question(
+        "Please enter maximum number: ",
+        (maxNumber) => {
+            for (let i=1; i <= Number(maxNumber); i++) {
+                console.log(i, checkNumber(i))
+            }
+            rl.close();
+        }
+    )
 
-
-
+    rl.on('close', () => {
+        process.exit(0);
+    });
 }
 
 function checkNumber(number) {
@@ -37,4 +56,5 @@ function checkNumber(number) {
 }
 
 // Now, we run the main function:
+
 fizzbuzz();
