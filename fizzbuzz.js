@@ -2,22 +2,39 @@
 function fizzbuzz() {
 
     // Put your code here...
-    for (let i=1; i <= 100; i++) {
-        if (i % 3 === 0 && i % 5 === 0) {
-            console.log("FizzBuzz")
-        } else if (i % 3 === 0) {
-            console.log("Fizz")
-        } else if (i % 5 === 0) {
-            console.log("Buzz")
-        } else {
-            console.log(i)
-        }
+    for (let i=1; i <= 255; i++) {
+        console.log(i, checkNumber(i))
     }
 
 
 
 }
 
+function checkNumber(number) {
+    let textOutputArr = []
+    if (number % 3 === 0) textOutputArr.push("Fizz")
+    if (number % 5 === 0) textOutputArr.push("Buzz")
+    if (number % 7 === 0) textOutputArr.push("Bang")
+    if (number % 11 === 0) {
+        textOutputArr = []
+        textOutputArr.push("Bong")
+    }
+    if (number % 13 === 0) {
+        let bWordFound = false
+        let i = 0
+        while (!bWordFound && i < textOutputArr.length) {
+            if (textOutputArr[i][0] === "B") {
+                bWordFound = true
+                textOutputArr.splice(i,0,"Fezz")
+            }
+            i++
+        }
+        if (!bWordFound) textOutputArr.push("Fezz")
+    }
+    if (number % 17 === 0) textOutputArr.reverse()
+    if (textOutputArr.length > 0) return textOutputArr.join("")
+    return number
+}
+
 // Now, we run the main function:
 fizzbuzz();
-
