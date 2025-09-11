@@ -56,5 +56,4 @@ function checkNumber(number) {
 }
 
 // Now, we run the main function:
-
 fizzbuzz();
